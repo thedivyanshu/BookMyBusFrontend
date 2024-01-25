@@ -1,0 +1,28 @@
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .jumbotron {
+      background-color: #bd1b4663;
+    }
+    .feature-icon {
+      font-size: 3rem;
+      color: #007bff;
+    }
+
+    .blink {
+      color : rgb(10, 10, 10);
+      margin-right: 0.5rem;
+        animation: blink 2s steps(5, start) infinite;
+        -webkit-animation: blink 1s steps(5, start) infinite;
+      }
+      @keyframes blink {
+        to {
+          visibility: hidden;
+        }
+      }
+      @-webkit-keyframes blink {
+        to {
+          visibility: hidden;
+        }
+      }

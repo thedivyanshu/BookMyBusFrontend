@@ -1,0 +1,16 @@
+footer {
+    background-color: #19191a; /* Dark background color for the footer */
+}
+
+footer p {
+    margin: 5px 0; /* Adjust the margin for better spacing */
+    font-size: 12px; /* Adjust the font size for the text */
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    /* Styles for screens smaller than or equal to 768px (e.g., mobile phones) */
+    footer p {
+        font-size: 5px; /* Adjust the font size for smaller screens */
+    }
+}

@@ -1,0 +1,92 @@
+<div class="container-fluid bg">
+  <div class="text-center text-white pt-2">
+    <a routerLink="/adminHome" style="color: white; text-decoration: none">
+      <h2>
+        <b
+          ><i
+            ><span class="text-white"><i class="fa-solid fa-bus"></i> Book</span
+            ><span class="text-warning">MyBus</span></i
+          ></b
+        >
+      </h2>
+    </a>
+  </div>
+  <div>
+    <button class="btn btn-light float-left" routerLink="/adminHome">
+      Home
+    </button>
+  </div>
+  <br /><br /><br />
+  <div
+    class="panel panel-danger bg1 p-1 m-1 rounded"
+    style="background-image: linear-gradient(315deg, #5c5959 0%, #414141 74%)"
+  >
+    <div class="panel-heading">
+      <h3 class="text-center" [style.color]="'white'">
+        <b>List of Bookings</b>
+      </h3>
+    </div>
+    <br />
+    <div class="panel-body">
+      <label for="userId" [style.color]="'white'"
+        ><strong>Enter User ID:</strong></label
+      >
+      <input type="text" id="userId" [(ngModel)]="userId" /> &nbsp;
+      <button (click)="fetchBookings()" class="btn btn-success">
+        Fetch Bookings
+      </button>
+      <br /><br /><br />
+      <table border="3" class="table table-striped">
+        <thead>
+          <tr style="color: white">
+            <th>Booking ID</th>
+            <th>Booking Date</th>
+            <th>Booking Time</th>
+            <th>Total Cost</th>
+            <th>Bus Number</th>
+            <th>Passenger(s)</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- Use *ngIf to check if bookings array is empty -->
+          <ng-container *ngIf="noBookingsFound; else bookingsTable">
+            <tr>
+              <td colspan="7" class="text-center" style="color: white">
+                <strong>No bookings found for the given User ID.</strong>
+              </td>
+            </tr>
+          </ng-container>
+          <!-- Else block for when bookings array is not empty -->
+          <ng-template #bookingsTable>
+            <tr *ngFor="let booking of bookings">
+              <td style="color: white">{{ booking.bookingId }}</td>
+              <td style="color: white">{{ booking.bookingDate }}</td>
+              <td style="color: white">{{ booking.bookingTime }}</td>
+              <td style="color: white">Rs{{ booking.totalCost }}</td>
+              <td style="color: white">{{ booking.busNumber }}</td>
+              <td style="color: white">
+                <ul>
+                  <li *ngFor="let passenger of booking.passengers">
+                    {{ passenger.name }} (Age: {{ passenger.age }}, Luggage:
+                    {{ passenger.luggage }})
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <button
+                  class="btn btn-danger"
+                  (click)="deleteBooking(booking.bookingId, userId)"
+                >
+                  Cancel Booking
+                </button>
+              </td>
+            </tr>
+          </ng-template>
+        </tbody>
+      </table>
+      <app-footer></app-footer>
+    </div>
+  </div>
+</div>

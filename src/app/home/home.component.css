@@ -1,0 +1,66 @@
+body {
+  background-image: url("../../assets/img/6.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0; /* Remove default margin to ensure the image covers the entire viewport */
+  /* Set the height to 100% of the viewport height */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+html {
+  height: 100%;
+}
+
+.bg {
+  /* The image used */
+
+  background-image: linear-gradient(
+      to bottom,
+      rgba(238, 231, 231, 0.52),
+      rgba(0, 0, 0, 0.73)
+    ),
+    url("../../assets/img/2.jpg");
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#form {
+  height: 50px;
+  width: 300px;
+}
+
+.box {
+  background-color: rgba(170, 172, 183, 0.995);
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.blink {
+  color: rgb(14, 13, 13);
+  margin-right: 0.5rem;
+  animation: blink 2s steps(5, start) infinite;
+  -webkit-animation: blink 1s steps(5, start) infinite;
+}
+.content-container {
+}
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}

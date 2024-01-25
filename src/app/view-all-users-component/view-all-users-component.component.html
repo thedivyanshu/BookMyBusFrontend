@@ -1,0 +1,59 @@
+<div class="container-fluid bg">
+  <div class="text-center text-white pt-2">
+    <a routerLink="/adminHome" style="color: white; text-decoration: none">
+      <h2>
+        <b
+          ><i
+            ><span class="text-white"><i class="fa-solid fa-bus"></i> Book</span
+            ><span class="text-warning">MyBus</span></i
+          ></b
+        >
+      </h2>
+    </a>
+  </div>
+  <div>
+    <button class="btn btn-light float-left" routerLink="/adminHome">
+      Home
+    </button>
+  </div>
+  <br /><br /><br />
+  <div
+    class="panel panel-danger bg1 p-1 m-1 rounded"
+    style="background-image: linear-gradient(315deg, #5e3838 0%, #2f2a2f 74%)"
+  >
+    <div class="panel-heading">
+      <h3 class="text-center" style="color: white">
+        <b>List Of User Accounts</b>
+      </h3>
+    </div>
+    <br />
+    <div class="panel-body">
+      <table class="table table-striped" *ngIf="data" border="3">
+        <thead [style.color]="'white'">
+          <tr>
+            <th>User Id</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>User Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let users of data" [style.background-color]="'white'">
+            <td>{{ users.userId }}</td>
+            <td>{{ users.email }}</td>
+            <td>{{ users.phone }}</td>
+            <td>{{ users.userName }}</td>
+            <td>
+              <button class="btn btn-danger" (click)="deleteUser(users.userId)">
+                Remove Account
+              </button>
+              &nbsp;
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
